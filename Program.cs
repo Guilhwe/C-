@@ -30,7 +30,7 @@ void MostrarMenu()
             break;
         case 2: ListarBandas();
             break;
-        case 3: Console.WriteLine("Elegiste la opción " + opciónElegidaNumerica);
+        case 3: PuntuarBandas();
             break;
         case 4: Console.WriteLine("Elegiste la opción " + opciónElegidaNumerica);
             break;
@@ -67,13 +67,20 @@ void ListarBandas()
     Console.WriteLine("**********************************");
     Console.WriteLine("Listando las bandas registradas");
     Console.WriteLine("**********************************\n");
-    for (int i = 0; i<ListaDeBandas.Count; i++)//mientras i sea menor que lista de bandas repite x y sumale uno a i
-    {
-        Console.WriteLine($"Banda: {ListaDeBandas[i]}");
-    }
+    //for (int i = 0; i<ListaDeBandas.Count; i++)//mientras i sea menor que lista de bandas repite x y sumale uno a i
+    //{
+       // Console.WriteLine($"Banda: {ListaDeBandas[i]}");
+    //}
+    foreach(string banda in ListaDeBandas)//forma mas sintetizada de la forma de arriba
+    Console.WriteLine($"Banda: {banda}");
     Console.WriteLine("\nPulse cualquier tecla para volver al menu principal");
     Console.ReadKey();
     Console.Clear();
     MostrarMenu();
+
+}
+
+void PuntuarBandas()
+{
 
 }
