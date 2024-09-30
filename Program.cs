@@ -1,6 +1,8 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿
 string mensajeDeBienvenida= "Bienvenidos a Screen Sound";
-//List<string> ListaDeBandas = new List<string>{"Linkin Park", "U2", "SKILLET"};
+
+
+
 Dictionary<string, List<int>> bandasRegistradas = new Dictionary<string, List<int>>();
 bandasRegistradas.Add("Linkin Park", new List<int>{10,9,10});
 bandasRegistradas.Add("U2", new List<int>{10,8,5,3});
@@ -40,9 +42,12 @@ void MostrarMenu()
             break;
         case 3: PuntuarBandas();
             break;
-        case 4: Console.WriteLine("Elegiste la opción " + opciónElegidaNumerica);
+        case 4: MediaDeLaBanda();
             break;
         case -1: Console.WriteLine("Hasta la próximaaa!!");
+                 Thread.Sleep(4000);
+
+                 Console.Clear();
             break;
         default: Console.WriteLine("Opción no válida");
             break;
@@ -104,12 +109,42 @@ if (bandasRegistradas.ContainsKey(nombreDeLaBanda))//comprueba si l banda esta e
 
 }else{
     Console.WriteLine($"\nLa banda {nombreDeLaBanda} no fue encontrada");
-    Console.WriteLine("Pulse una tecla para vlver al menu");
+    Console.WriteLine("Pulse una tecla para volver al menu");
     Console.ReadKey();
     Console.Clear();
     MostrarMenu();
 
 }
+
+}
+
+void MediaDeLaBanda()
+
+{
+Console.Clear();
+MostrarTituloDeLaOpcion("Media de la banda");
+Console.WriteLine("Escribe el nombre de la banda de la que quieres ver la media: ");
+string nombreDeLaBanda = Console.ReadLine()!;
+if (bandasRegistradas.ContainsKey(nombreDeLaBanda))
+{
+    List<int> notas = bandasRegistradas[nombreDeLaBanda];//asignamos un nombre a la lista de notas de dentro del diccionario
+    double media = notas.Average();//elegimos la variable tipo double o decimal y usamos el metodo base .Average que hace la media de las notas 
+    double mediaRedondeada = Math.Round(media,1);//Redondeamos la nota
+    Console.WriteLine($"La media de la banda {nombreDeLaBanda} es : {mediaRedondeada}");//exhibimos la norta final redondeada
+    Console.WriteLine("\nPulse una tecla para volver al menu");
+    Console.ReadKey();
+    Console.Clear();
+    MostrarMenu();
+
+}else{
+    Console.WriteLine($"\nLa banda {nombreDeLaBanda} no fue encontrada");
+    Console.WriteLine("Pulse una tecla para volver al menu");
+    Console.ReadKey();
+    Console.Clear();
+    MostrarMenu();
+
+}
+
 
 }
 
