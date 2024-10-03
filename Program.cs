@@ -1,13 +1,13 @@
-﻿
+﻿using ScreenSound1.Modelos;
+
+Grupo linkinpark = new Grupo ("Linkin Park");
+Grupo u2=new Grupo("U2");
+
 string mensajeDeBienvenida= "Bienvenidos a Screen Sound";
 
 
 
 Dictionary<string, List<int>> bandasRegistradas = new Dictionary<string, List<int>>();
-bandasRegistradas.Add("Linkin Park", new List<int>{10,9,10});
-bandasRegistradas.Add("U2", new List<int>{10,8,5,3});
-bandasRegistradas.Add("Pink Floyd", new List<int>{10,9,10});
-bandasRegistradas.Add("Beatles", new List<int>());
 
 void MostrarMensajeDeBienvenida()
 
@@ -30,6 +30,7 @@ void MostrarMenu()
     Console.WriteLine("Elija 3 para puntuar una banda");
     Console.WriteLine("Elija 4 para ver la media de una banda");
     Console.WriteLine("Elija -1 para salir");
+    Console.WriteLine("Mostrar detalles de una banda");
     Console.Write("\nElige la opción: ");
     string opciónElegida = Console.ReadLine()!;//! evita el valor nulo
     int opciónElegidaNumerica = int.Parse(opciónElegida);
