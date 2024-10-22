@@ -2,16 +2,9 @@ using ScreenSound1.Modelos;
 
 namespace ScreenSound1.Menus;
 
-internal class MenuExhibirDetalles
+internal class MenuExhibirDetalles : Menu
 {
-    public void ExibirTituloDaOpcao(string titulo)
-        {
-            int quantidadeDeLetras = titulo.Length;
-            string asteriscos = string.Empty.PadLeft(quantidadeDeLetras, '*');
-            Console.WriteLine(asteriscos);
-            Console.WriteLine(titulo);
-            Console.WriteLine(asteriscos + "\n");
-        }
+    
     public void Ejecutar(Dictionary<string, Grupo> bandasRegistradas)
     {
         Console.Clear();

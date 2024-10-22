@@ -65,11 +65,13 @@ internal class Program
                     MostrarBandasRegistradas();
                     break;
                 case 4:
-                    AvaliarUmaBanda();
+                    MenuEvaluarBanda menu4 = new();
+                    menu4.Ejecutar(bandasRegistradas);
+                    ExibirOpcoesDoMenu();
                     break;
                 case 5:
-                    MenuExhibirDetalles menu = new MenuExhibirDetalles();
-                    menu.Ejecutar(bandasRegistradas);
+                    MenuExhibirDetalles menu5 = new MenuExhibirDetalles();
+                    menu5.Ejecutar(bandasRegistradas);
                     ExibirOpcoesDoMenu();
                     
                     break;
@@ -152,33 +154,9 @@ internal class Program
             Console.WriteLine(asteriscos + "\n");
         }
 
-        void AvaliarUmaBanda()
-        {
-            Console.Clear();
-            ExibirTituloDaOpcao("Avaliar banda");
-            Console.Write("Digite o nome da banda que deseja avaliar: ");
-            string nombreDeLaBanda = Console.ReadLine()!;
-            if (bandasRegistradas.ContainsKey(nombreDeLaBanda))
-            {
-                Grupo grupo = bandasRegistradas[nombreDeLaBanda];
-                Console.Write($"Qual a nota que a banda {nombreDeLaBanda} merece: ");
-                Evaluacion nota = Evaluacion.Parse(Console.ReadLine()!);
-                grupo.AgregarNota(nota);
-                Console.WriteLine($"\nA nota {nota.Nota} foi registrada com sucesso para a banda {nombreDeLaBanda}");
-                Thread.Sleep(2000);
-                Console.Clear();
-                ExibirOpcoesDoMenu();
-            }
-            else
-            {
-                Console.WriteLine($"\nA banda {nombreDeLaBanda} não foi encontrada!");
-                Console.WriteLine("Digite uma tecla para voltar ao menu principal");
-                Console.ReadKey();
-                Console.Clear();
-                ExibirOpcoesDoMenu();
-            }
+        
 
-        }
+        
 
         
 
