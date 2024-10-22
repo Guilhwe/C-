@@ -152,9 +152,9 @@ void AvaliarUmaBanda()
     {
         Grupo grupo= bandasRegistradas[nombreDeLaBanda];
         Console.Write($"Qual a nota que a banda {nombreDeLaBanda} merece: ");
-        Evaluacion nota =new Evaluacion().Parse(Console.ReadLine()!);
-        grupo.AgregarNota(new Evaluacion(nota));
-        Console.WriteLine($"\nA nota {nota} foi registrada com sucesso para a banda {nombreDeLaBanda}");
+        Evaluacion nota = Evaluacion.Parse(Console.ReadLine()!);
+        grupo.AgregarNota(nota);
+        Console.WriteLine($"\nA nota {nota.Nota} foi registrada com sucesso para a banda {nombreDeLaBanda}");
         Thread.Sleep(2000);
         Console.Clear();
         ExibirOpcoesDoMenu();

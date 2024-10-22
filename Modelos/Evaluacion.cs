@@ -6,9 +6,9 @@ internal class Evaluacion
     {
         Nota = nota;
     }
-    public int Nota{get;}
+    public int Nota {get;}
 
-    public Evaluacion Parse(string texto)
+    public static Evaluacion Parse(string texto)
     {
         int nota =  int.Parse(texto);
         return new Evaluacion(nota);
