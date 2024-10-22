@@ -1,7 +1,7 @@
 namespace ScreenSound1.Modelos;
 
 
-class Musica
+internal class Musica
 {
     public Musica(Grupo artista, string? nombre)//este es el constructor de la clase Musica que nos permite escribir codigo en el momento de la creacion de la misma
     {
