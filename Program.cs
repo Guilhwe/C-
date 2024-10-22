@@ -1,4 +1,6 @@
-﻿using ScreenSound1.Modelos;
+﻿using ScreenSound1.Menus;
+using ScreenSound1.Modelos;
+
 
 internal class Program
 {
@@ -66,7 +68,10 @@ internal class Program
                     AvaliarUmaBanda();
                     break;
                 case 5:
-                    ExibirDetalhes();
+                    MenuExhibirDetalles menu = new MenuExhibirDetalles();
+                    menu.Ejecutar(bandasRegistradas);
+                    ExibirOpcoesDoMenu();
+                    
                     break;
                 case -1:
                     Console.WriteLine("Hasta la proxima)");
@@ -175,34 +180,7 @@ internal class Program
 
         }
 
-        void ExibirDetalhes()
-        {
-            Console.Clear();
-            ExibirTituloDaOpcao("Exibir detalhes da banda");
-            Console.Write("Digite o nome da banda que deseja conhecer melhor: ");
-            string nombreDeLaBanda = Console.ReadLine()!;
-            if (bandasRegistradas.ContainsKey(nombreDeLaBanda))
-            {
-                Grupo grupo = bandasRegistradas[nombreDeLaBanda];
-                Console.WriteLine($"\nA média da banda {nombreDeLaBanda} é {grupo.Media}.");
-                /*
-                * ESPAÇO RESERVADO PARA COMPLETAR A FUNÇÃO
-                */
-                Console.WriteLine("Digite uma tecla para votar ao menu principal");
-                Console.ReadKey();
-                Console.Clear();
-                ExibirOpcoesDoMenu();
-
-            }
-            else
-            {
-                Console.WriteLine($"\nA banda {nombreDeLaBanda} não foi encontrada!");
-                Console.WriteLine("Digite uma tecla para voltar ao menu principal");
-                Console.ReadKey();
-                Console.Clear();
-                ExibirOpcoesDoMenu();
-            }
-        }
+        
 
         ExibirOpcoesDoMenu();
     }
