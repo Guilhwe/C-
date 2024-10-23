@@ -58,10 +58,12 @@ internal class Program
                 case 1:
                     MenuRegistrarBanda menu1 = new();
                     menu1.Ejecutar(bandasRegistradas);
+                    ExibirOpcoesDoMenu();
                     break;
                 case 2:
                     MenuRegistrarAlbum menu2 = new();
                     menu2.Ejecutar(bandasRegistradas);
+                    ExibirOpcoesDoMenu();
                     break;
                 case 3:
                     MenuBandasRegistradas menu3 = new();
