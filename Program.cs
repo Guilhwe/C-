@@ -1,7 +1,5 @@
 ﻿using ScreenSound1.Menus;
 using ScreenSound1.Modelos;
-
-
 internal class Program
 {
     private static void Main(string[] args)
@@ -15,15 +13,17 @@ internal class Program
         u2.AgregarNota(new Evaluacion(8));
         u2.AgregarNota(new Evaluacion(7));
 
-
-
-
         Dictionary<string, Grupo> bandasRegistradas = new();
         bandasRegistradas.Add(linkinpark.Nombre, linkinpark);
         bandasRegistradas.Add(u2.Nombre, u2);
 
-
-
+        Dictionary<int, Menu> opciones = new();
+        opciones.Add(1, new MenuEvaluarBanda());
+        opciones.Add(2, new MenuRegistrarAlbum());
+        opciones.Add(3, new MenuBandasRegistradas());
+        opciones.Add(4, new MenuEvaluarBanda());
+        opciones.Add(5, new MenuExhibirDetalles());
+        opciones.Add(-1, new MenuSalir());
 
         void ExibirLogo()
         {
@@ -38,7 +38,6 @@ internal class Program
 ");
             Console.WriteLine("Boas vindas ao Screen Sound 2.0!");
         }
-
         void ExibirOpcoesDoMenu()
         {
             ExibirLogo();
@@ -52,6 +51,8 @@ internal class Program
             Console.Write("\nDigite a sua opção: ");
             string opcaoEscolhida = Console.ReadLine()!;
             int opcaoEscolhidaNumerica = int.Parse(opcaoEscolhida);
+
+            Menu menu = new MenuEvaluarBanda();
 
             switch (opcaoEscolhidaNumerica)
             {
@@ -82,24 +83,14 @@ internal class Program
                     
                     break;
                 case -1:
-                    Console.WriteLine("Hasta la proxima)");
+                    MenuSalir menu0 = new MenuSalir();
+                    menu0.Ejecutar(bandasRegistradas);
                     break;
                 default:
                     Console.WriteLine("Opção inválida");
                     break;
             }
         }
-
-      
-        void ExibirTituloDaOpcao(string titulo)
-        {
-            int quantidadeDeLetras = titulo.Length;
-            string asteriscos = string.Empty.PadLeft(quantidadeDeLetras, '*');
-            Console.WriteLine(asteriscos);
-            Console.WriteLine(titulo);
-            Console.WriteLine(asteriscos + "\n");
-        }
-
         ExibirOpcoesDoMenu();
     }
 }
