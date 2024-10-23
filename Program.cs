@@ -56,7 +56,8 @@ internal class Program
             switch (opcaoEscolhidaNumerica)
             {
                 case 1:
-                    RegistrarBanda();
+                    MenuRegistrarBanda menu1 = new();
+                    menu1.Ejecutar(bandasRegistradas);
                     break;
                 case 2:
                     MenuRegistrarAlbum menu2 = new();
@@ -87,21 +88,6 @@ internal class Program
             }
         }
 
-        
-        void RegistrarBanda()
-        {
-            Console.Clear();
-            ExibirTituloDaOpcao("Registro das bandas");
-            Console.Write("Digite o nome da banda que deseja registrar: ");
-            string nombreDeLaBanda = Console.ReadLine()!;
-            Grupo grupo = new(nombreDeLaBanda);
-            bandasRegistradas.Add(nombreDeLaBanda, grupo);
-            Console.WriteLine($"A banda {nombreDeLaBanda} foi registrada com sucesso!");
-            Thread.Sleep(4000);
-            Console.Clear();
-            ExibirOpcoesDoMenu();
-        }
-
       
         void ExibirTituloDaOpcao(string titulo)
         {
@@ -111,12 +97,6 @@ internal class Program
             Console.WriteLine(titulo);
             Console.WriteLine(asteriscos + "\n");
         }
-
-        
-
-        
-
-        
 
         ExibirOpcoesDoMenu();
     }
